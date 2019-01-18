@@ -4,8 +4,8 @@ class AnimalList extends Component {
         return (
             <section className="animals">
                 {
-                    this.props.animals.forEach(animal => {
-                        this.props.owners.forEach(owner => {
+                    this.props.animals.map(animal => {
+                        this.props.owners.map(owner => {
                             if (animal.ownerId === owner.id) {
                                 console.log("animal", animal)
                                 console.log("owner", owner)

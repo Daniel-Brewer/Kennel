@@ -28,6 +28,7 @@ class Kennel extends Component {
     ]
     animalsFromAPI = [
         { id: 1, ownerId: 5, name: "Cinnamon", breed: "Boxer" },
+        { id: 1, ownerId: 6, name: "Cinnamon", breed: "Boxer" },
         { id: 2, ownerId: 4, name: "Lily", breed: "Labrador" },
         { id: 3, ownerId: 3, name: "Snowball", breed: "Cat" },
         { id: 4, ownerId: 2, name: "Finn", breed: "Labrador" },
