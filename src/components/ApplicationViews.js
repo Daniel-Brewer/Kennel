@@ -13,6 +13,7 @@ import EmployeeDetail from './employee/EmployeeDetail'
 import LocationDetail from './location/LocationDetail'
 import OwnerDetail from './owner/OwnerDetail'
 import AnimalForm from "./animal/AnimalForm"
+import EmployeeForm from "./employee/EmployeeForm"
 
 export default class ApplicationViews extends Component {
     state = {
@@ -26,6 +27,13 @@ export default class ApplicationViews extends Component {
         .then(() => AnimalManager.getAll())
         .then(animals => this.setState({
          animals: animals
+    })
+  )
+
+    addEmployee = (employee) => EmployeeManager.post(employee)
+        .then(() => EmployeeManager.getAll())
+        .then(employees => this.setState({
+         employees: employees
     })
   )
 
@@ -118,6 +126,10 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route path="/employees/:employeeId(\d+)" render={(props) => {
                     return <EmployeeDetail {...props} deleteEmployee={this.deleteEmployee} employees={this.state.employees} /> 
+                }} />
+                <Route path="/employees/new" render={(props) => {
+                    return <EmployeeForm {...props}
+                                    addEmployee={this.addEmployee} />
                 }} />
                 <Route exact path="/owners" render={(props) => {
                     return <OwnerList owners={this.state.owners} />
