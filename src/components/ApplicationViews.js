@@ -12,6 +12,7 @@ import AnimalDetail from './animal/AnimalDetail'
 import EmployeeDetail from './employee/EmployeeDetail'
 import LocationDetail from './location/LocationDetail'
 import OwnerDetail from './owner/OwnerDetail'
+import AnimalForm from "./animal/AnimalForm"
 
 export default class ApplicationViews extends Component {
     state = {
@@ -20,6 +21,13 @@ export default class ApplicationViews extends Component {
         locations: [],
         owners: []
     };
+
+    addAnimal = (animal) => AnimalManager.post(animal)
+        .then(() => AnimalManager.getAll())
+        .then(animals => this.setState({
+         animals: animals
+    })
+  )
 
     deleteAnimal = id => {
         return fetch(`http://localhost:5002/animals/${id}`, {
@@ -91,12 +99,20 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/" render={(props) => {
                     return <LocationList locations={this.state.locations} />
                 }} />
-                <Route exact path="/animals" render={(props) => {
-                    return <AnimalList animals={this.state.animals} />
-                }} />
+
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
                     return <AnimalDetail {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
                 }} />  
+                <Route exact path="/animals" render={(props) => {
+                    return <AnimalList {...props}
+                       deleteAnimal={this.deleteAnimal}
+                       animals={this.state.animals} />
+                }} />
+                <Route path="/animals/new" render={(props) => {
+                    return <AnimalForm {...props}
+                                    addAnimal={this.addAnimal}
+                                    employees={this.state.employees} />
+                }} />
                 <Route exact path="/employees" render={(props) => {
                     return <EmployeeList employees={this.state.employees} />
                 }} />
