@@ -27,10 +27,6 @@
     {
       "id": 4,
       "name": "Henley"
-    },
-    {
-      "id": 6,
-      "name": "Checkers"
     }
   ],
   "employees": [
@@ -45,10 +41,6 @@
     {
       "id": 3,
       "name": "Zoe LeBlanc"
-    },
-    {
-      "id": 4,
-      "name": "Blaise Roberts"
     }
   ],
   "owners": [
@@ -76,11 +68,6 @@
       "id": 5,
       "name": "Fletcher Bangs",
       "phoneNumber": "615-234-5678"
-    },
-    {
-      "id": 6,
-      "name": "Angela Lee",
-      "phoneNumber": "615-012-3456"
     }
   ]
 }
