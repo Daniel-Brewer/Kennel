@@ -24,9 +24,9 @@ export default class EmployeeForm extends Component {
             const employee = {
                 name: this.state.employeeName,
             }
-
+            
             // Create the employee and redirect user to employee list
-            this.props.addemployee(employee).then(() => this.props.history.push("/employees"))
+            this.props.addEmployee(employee).then(() => this.props.history.push("/employees"))
         }
     }
 
