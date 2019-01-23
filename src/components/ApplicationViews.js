@@ -13,6 +13,7 @@ import EmployeeDetail from './employee/EmployeeDetail'
 import LocationDetail from './location/LocationDetail'
 import OwnerDetail from './owner/OwnerDetail'
 import AnimalForm from "./animal/AnimalForm"
+import OwnerForm from "./owner/OwnerForm"
 import EmployeeForm from "./employee/EmployeeForm"
 import Login from './authentication/Login'
 
@@ -37,6 +38,12 @@ export default class ApplicationViews extends Component {
         .then(() => EmployeeManager.getAll())
         .then(employees => this.setState({
          employees: employees
+    })
+  )
+    addOwner = (owner) => OwnerManager.post(owner)
+        .then(() => OwnerManager.getAll())
+        .then(owners => this.setState({
+         owners: owners
     })
   )
 
@@ -153,6 +160,11 @@ export default class ApplicationViews extends Component {
             }} />
                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
                     return <OwnerDetail {...props} deleteOwner={this.deleteOwner} owners={this.state.owners} />
+                }} />
+                                <Route path="/owners/new" render={(props) => {
+                    return <OwnerForm {...props}
+                                    addOwner={this.addOwner}
+                                    phoneNumber={this.state.phoneNumber} />
                 }} />
             </React.Fragment>
         )
