@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import "./Owner.css"
 import OwnerIcon from "./OwnerIcon.jpg"
 export default class OwnerList extends Component {
     render () {
         return (
+            <React.Fragment>
+            <div className="ownerButton">
+                    <button type="button"
+                            className="btn btn-success"
+                            onClick={() => {
+                                this.props.history.push("/owners/new")}
+                            }>
+                        Add Owner
+                    </button>
+                </div>
             <section className="owners">
             {
                 this.props.owners.map(owner =>
@@ -14,6 +25,7 @@ export default class OwnerList extends Component {
                                 {owner.name}
                                 <br></br>
                                 {owner.phoneNumber}
+                                <Link className="nav-link" to={`/owners/${owner.id}`}>Details</Link>
                                 <a href="#"
                                     onClick={() => this.props.deleteOwner(owner.id)}
                                     className="card-link">Delete</a>
@@ -23,6 +35,7 @@ export default class OwnerList extends Component {
                 )
             }
             </section>
+            </React.Fragment>   
         )
     }
 }
