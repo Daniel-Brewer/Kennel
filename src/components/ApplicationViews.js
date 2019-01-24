@@ -138,8 +138,10 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/employees" render={props => {
                     if (this.isAuthenticated()) {
-                        return <EmployeeList {...props} deleteEmployee={this.deleteEmployee}
-                                            employees={this.state.employees} />
+                        return <EmployeeList deleteEmployee={this.deleteEmployee}
+                                                animals={this.state.animals}
+                                                employees={this.state.employees}
+                                                deleteAnimal={this.deleteAnimal} />
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -157,7 +159,7 @@ export default class ApplicationViews extends Component {
                     } else {
                         return <Redirect to="/login" />
                 }
-            }} />
+                }} />
                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
                     return <OwnerDetail {...props} deleteOwner={this.deleteOwner} owners={this.state.owners} />
                 }} />
