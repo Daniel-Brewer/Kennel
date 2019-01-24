@@ -13,10 +13,6 @@
   ],
   "animals": [
     {
-      "id": 1,
-      "name": "Doodles"
-    },
-    {
       "id": 2,
       "name": "Jack"
     },
@@ -33,23 +29,33 @@
       "breed": "Boxer",
       "employeeId": 1,
       "id": 5
+    },
+    {
+      "name": "Doodles",
+      "breed": "Terrier",
+      "employeeId": 2,
+      "id": 6
     }
   ],
   "employees": [
     {
       "id": 1,
+      "locationId": 1,
       "name": "Jessica Younker"
     },
     {
       "id": 2,
+      "locationId": 1,
       "name": "Jordan Nelson"
     },
     {
       "id": 3,
+      "locationId": 2,
       "name": "Zoe LeBlanc"
     },
     {
       "name": "Jill Smith",
+      "locationId": 2,
       "id": 4
     }
   ],
