@@ -35,7 +35,7 @@ export default class EmployeeForm extends Component {
             <React.Fragment>
                 <form className="employeeForm">
                     <div className="form-group">
-                        <label htmlFor="employeeName">Employee name</label>
+                        <label htmlFor="employeeName">Employee Name</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
