@@ -139,6 +139,7 @@ export default class ApplicationViews extends Component {
           exact
           path="/animals"
           render={props => {
+            if (this.isAuthenticated()) {
             return (
               <AnimalList
                 {...props}
@@ -146,6 +147,9 @@ export default class ApplicationViews extends Component {
                 animals={this.state.animals}
               />
             );
+          } else {
+            return <Redirect to="/login" />;
+        }
           }}
         />
         {/* this is the detail for individual animal */}

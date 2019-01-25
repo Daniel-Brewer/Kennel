@@ -7,6 +7,14 @@ import AnimalCard from "../animal/AnimalCard"
 export default class EmployeeList extends Component {
     render () {
         return (
+            <React.Fragment>
+            <div className="employeeButton">
+            <button type="button"
+                    onClick={()=> this.props.history.push("/employees/new")}
+                    className="btn btn-success">
+                Add Employee
+            </button>
+        </div>
             <section className="employees">
             {
                 this.props.employees.map(employee =>
@@ -36,6 +44,7 @@ export default class EmployeeList extends Component {
                 )
             }
             </section>
+            </React.Fragment>
         )
     }
 }
