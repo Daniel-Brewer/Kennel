@@ -59,7 +59,7 @@ export default class AnimalForm extends Component {
                         <label htmlFor="employee">Assign to caretaker</label>
                         <select defaultValue="" name="employee" id="employee"
                                 onChange={this.handleFieldChange}>
-                            <option value="">Select an employee</option>
+                            <option value="">Select an Employee</option>
                         {
                             this.props.employees.map(e => <option key={e.id} id={e.id}>{e.name}</option>)
                         }
